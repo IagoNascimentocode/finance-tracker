@@ -1,5 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
-// import AppDataSource from "./database/data-source";
+import AppDataSource from "./database/data-source";
 import "reflect-metadata";
 import cors from "cors";
 import * as dotenv from "dotenv";
@@ -12,9 +12,9 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
-// AppDataSource.initialize().then(() => {
-//   console.log("Database connected");
-// })
+AppDataSource.initialize().then(() => {
+  console.log("Database connected");
+})
 
 app.use(router)
 
